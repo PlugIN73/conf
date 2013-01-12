@@ -2,6 +2,9 @@ require "spec_helper"
 
 describe "it should be work" do
   before do
+    @config = Conf.build :env do
+
+    end
 
   end
 
