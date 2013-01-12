@@ -1,5 +1,10 @@
 require "conf/version"
 
+
 module Conf
-  # Your code goes here...
+  autoload :Configus, 'conf/configus'
+
+  def self.build
+    return Conf::Configus.new
+  end
 end
