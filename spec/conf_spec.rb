@@ -5,8 +5,11 @@ describe "it should be work" do
     @config = Conf.build :production do
       env :production do
         port 666
-        mail 123
+        server do
+          mail 123
+        end
       end
+
       env :test do
         port 666
         mail 123
@@ -21,5 +24,11 @@ describe "it should be work" do
   it "should be work key value" do
     @config.port.should == 666
   end
+
+  it "should be work key value with hierarchy" do
+    @config.server.mail.should == 123
+  end
+
+  
 
 end

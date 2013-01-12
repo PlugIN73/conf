@@ -5,7 +5,6 @@ module Conf
   	def self.build(env, block)
   		b = new(env, block)
       Configus.new(b.conf_hash[env])
-
     end
 
     def initialize(env, block)

@@ -1,5 +1,5 @@
 module Conf
-  class Proxy < BasicObject
+  class Proxy
   	attr_reader :result
 
   	def self.build(block)
@@ -12,8 +12,12 @@ module Conf
     	instance_eval &block
     end
 
-  	def method_missing(key, value, &block)
-  		@result[key] = value
+  	def method_missing(name, *args, &block)
+  		if block
+        @result[name] = Proxy.build(block)
+      else
+        @result[name] = args.first
+      end
   	end
   end
 end
