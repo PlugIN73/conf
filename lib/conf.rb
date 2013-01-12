@@ -1,4 +1,5 @@
 require "conf/version"
+require "active_support/core_ext/hash"
 
 module Conf
   autoload :Configus, 'conf/configus'
