@@ -1,19 +1,16 @@
 module Conf
-
   class Configus
 
-    def initialize (hash)
+    def initialize(hash)
       hash.each do |key, value|
-        if value.is_a? Hash
-          self.class.new value
-        else
-          define_singleton_method(key) do
+        define_singleton_method(key) do
+          if value.is_a? Hash
+            self.class.new value
+          else
             value
           end
         end
       end
     end
-
   end
-
 end
