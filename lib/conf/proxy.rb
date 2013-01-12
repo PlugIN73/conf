@@ -4,7 +4,7 @@ module Conf
 
   	def self.build(block)
   		p = new(block)
-  		raise p.result.inspect
+      p.result
     end
 
     def initialize(block)

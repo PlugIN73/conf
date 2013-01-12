@@ -6,7 +6,6 @@ module Conf
   autoload :Proxy, 'conf/proxy'
 
   def self.build (env, &block)
-    configus = Builder.build(env, block)
-    return configus
+    Builder.build(env, block)
   end
 end
