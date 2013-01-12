@@ -2,10 +2,11 @@ require "spec_helper"
 
 describe "it should be work" do
   before do
-    @config = Conf.build :env do
-
-    end
-
+    @config = Conf.build :production do
+      env :production do
+        port 666
+      end
+   end
   end
 
   it "should be instance of conf" do
@@ -13,7 +14,7 @@ describe "it should be work" do
   end
 
   it "should be work key value" do
-
+    @config.port.should == 666 
   end
 
 end
